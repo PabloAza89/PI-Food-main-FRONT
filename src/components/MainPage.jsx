@@ -19,10 +19,10 @@ function MainPage() {
     setIsLoading(isLoading, isLoading.refresh = true)
 
     if (isLoading) {
-      fetch('http://localhost:3001/recipes')
+      fetch('https://pi-food-main-back-production.up.railway.app/recipes')
       .then((r) => r.json())
       .then((res) => setFoods(res))
-      fetch('http://localhost:3001/diets')
+      fetch('https://pi-food-main-back-production.up.railway.app/diets')
       .then(r => r.json())
       .then(res => setDiets(res))  
       setIsLoading(isLoading, isLoading.main = false)
@@ -34,10 +34,10 @@ function MainPage() {
 
   useEffect(() => {
     if(isLoading) {
-      fetch('http://localhost:3001/recipes')
+      fetch('https://pi-food-main-back-production.up.railway.app/recipes')
       .then((r) => r.json())
       .then((res) => setFoods(res))
-      fetch('http://localhost:3001/diets')
+      fetch('https://pi-food-main-back-production.up.railway.app/diets')
       .then(r => r.json())
       .then(res => setDiets(res))  
       setIsLoading(isLoading, isLoading.main = false)

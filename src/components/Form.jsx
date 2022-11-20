@@ -54,7 +54,7 @@ export default function Form({ GetAfterCreated }) {
    const handleSubmit = async (e) => {
     e.preventDefault();
     if (created === 0) {      
-      await fetch('http://localhost:3001/recipes', {
+      await fetch('https://pi-food-main-back-production.up.railway.app/recipes', {
        method: 'POST',
        body: JSON.stringify({
           title: title,
