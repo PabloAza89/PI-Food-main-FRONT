@@ -33,7 +33,7 @@ function MainPage() {
   const [diets, setDiets] = useState([]); // ALL MAIN DIETS
 
   useEffect(() => {
-    if(isLoading.main) {
+    //if(isLoading.main) {
       fetch('https://pi-food-main-back-production.up.railway.app/recipes')
       .then((r) => r.json())
       .then((res) => setFoods(res))
@@ -41,7 +41,7 @@ function MainPage() {
       .then(r => r.json())
       .then(res => setDiets(res))  
       setIsLoading(isLoading, isLoading.main = false)
-    }  
+    //}  
   }, [isLoading]); // [] -> MEANS RUN ONCE !
   
   let dietsAndTitleFilter = [] // FIRST INSTANCE ARRAY TO FILTER: 1º DIETS --> 2º TITLE
