@@ -46,19 +46,27 @@ function MainPage() {
 
   useEffect(() => {
     //if(isLoading.main) {
-      fetch('https://pi-food-main-back-production.up.railway.app/recipes')
-      .then((r) => r.json())
-      .then((res) => setFoods(res))
-      .then(setIsLoading(isLoading, isLoading.main = false))
+    async function fetchAPI() {
+      let response = await fetch('https://pi-food-main-back-production.up.railway.app/recipes')
+      response = await response.json()
+      setFoods(response)
+    }  
+    fetchAPI()
+    setIsLoading(isLoading, isLoading.main = false)      
     //}  
   }, [isLoading]); // [] -> MEANS RUN ONCE !
 
   useEffect(() => {
-    //if(isLoading.main) {     
-      fetch('https://pi-food-main-back-production.up.railway.app/diets')
-      .then(r => r.json())
-      .then(res => setDiets(res))  
-      .then(setIsLoading(isLoading, isLoading.main = false))
+    //if(isLoading.main) {   
+      async function fetchAPI() {
+        let response = await fetch('https://pi-food-main-back-production.up.railway.app/diets')
+        response = await response.json()
+        setDiets(response)  
+        
+      } 
+      fetchAPI()
+      setIsLoading(isLoading, isLoading.main = false) 
+    
     //}  
   }, [isLoading]); // [] -> MEANS RUN ONCE !
   
