@@ -33,7 +33,7 @@ function MainPage() {
   const [diets, setDiets] = useState([]); // ALL MAIN DIETS
 
   useEffect(() => {
-    if(isLoading.main) {
+    if(isLoading) {
       fetch('https://pi-food-main-back-production.up.railway.app/recipes')
       .then((r) => r.json())
       .then((res) => setFoods(res))
