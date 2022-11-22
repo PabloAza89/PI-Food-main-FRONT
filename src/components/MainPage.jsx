@@ -46,10 +46,10 @@ function MainPage() {
 
   useEffect(() => {
     //if(isLoading.main) {
-    async function fetchAPI() {
-      let response = await fetch('https://pi-food-main-back-production.up.railway.app/recipes')
-      response = await response.json()
-      setFoods(response)
+      const fetchAPI = async () => {
+      const response =  await fetch('https://pi-food-main-back-production.up.railway.app/recipes');
+      const data = await response.json();
+      setFoods(data);
     }  
     fetchAPI()
     setIsLoading(isLoading, isLoading.main = false)      
@@ -58,10 +58,10 @@ function MainPage() {
 
   useEffect(() => {
     //if(isLoading.main) {   
-      async function fetchAPI() {
-        let response = await fetch('https://pi-food-main-back-production.up.railway.app/diets')
-        response = await response.json()
-        setDiets(response)  
+      const fetchAPI = async () => {
+        const response = await fetch('https://pi-food-main-back-production.up.railway.app/diets');
+        const data = await response.json();
+        setDiets(data);  
         
       } 
       fetchAPI()
