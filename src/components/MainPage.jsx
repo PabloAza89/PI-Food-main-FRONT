@@ -32,44 +32,18 @@ function MainPage() {
   const [foods, setFoods] = useState([]); // ALL MAIN FOODS
   const [diets, setDiets] = useState([]); // ALL MAIN DIETS
 
-  // useEffect(() => {
-  //   //if(isLoading.main) {
-  //     fetch('https://pi-food-main-back-production.up.railway.app/recipes')
-  //     .then((r) => r.json())
-  //     .then((res) => setFoods(res))
-  //     fetch('https://pi-food-main-back-production.up.railway.app/diets')
-  //     .then(r => r.json())
-  //     .then(res => setDiets(res))  
-  //     setIsLoading(isLoading, isLoading.main = false)
-  //   //}  
-  // }, [isLoading]); // [] -> MEANS RUN ONCE !
-
   useEffect(() => {
-    //if(isLoading.main) {
-      const fetchAPI = async () => {
-      const response =  await fetch('https://pi-food-main-back-production.up.railway.app/recipes');
-      const data = await response.json();
-      setFoods(data);
+    if(isLoading.main) {
+      fetch('https://pi-food-main-back-production.up.railway.app/recipes')
+      .then((r) => r.json())
+      .then((res) => setFoods(res))
+      fetch('https://pi-food-main-back-production.up.railway.app/diets')
+      .then(r => r.json())
+      .then(res => setDiets(res))  
+      setIsLoading(isLoading, isLoading.main = false)
     }  
-    fetchAPI()
-    setIsLoading(isLoading, isLoading.main = false)      
-    //}  
   }, [isLoading]); // [] -> MEANS RUN ONCE !
-
-  useEffect(() => {
-    //if(isLoading.main) {   
-      const fetchAPI = async () => {
-        const response = await fetch('https://pi-food-main-back-production.up.railway.app/diets');
-        const data = await response.json();
-        setDiets(data);  
-        
-      } 
-      fetchAPI()
-      setIsLoading(isLoading, isLoading.main = false) 
-    
-    //}  
-  }, [isLoading]); // [] -> MEANS RUN ONCE !
-  
+ 
   
   let dietsAndTitleFilter = [] // FIRST INSTANCE ARRAY TO FILTER: 1º DIETS --> 2º TITLE
   let toShow = [] // ARRAY SORTED BY HEALTH LEVEL OR A-Z TO SHOW
