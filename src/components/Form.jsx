@@ -54,7 +54,7 @@ export default function Form({ GetAfterCreated }) {
    const handleSubmit = async (e) => {
     e.preventDefault();
     if (created === 0) {      
-      await fetch('https://pi-food-main-back-production.up.railway.app/recipes', {
+      await fetch('http://localhost:3001/recipes', {
        method: 'POST',
        body: JSON.stringify({
           title: title,
@@ -140,6 +140,7 @@ export default function Form({ GetAfterCreated }) {
       </Link>
       <form className="form" onSubmit={handleSubmit}>        
         <img className="image-form" src={noImage1} alt=""></img>
+        <div className="titleFormRecipe">Create your own recipe ! Please fill in all fields:</div>
         <div className="options-main-align">
           <div className="options-main-left">
             <div className="options-left">Title:</div>
